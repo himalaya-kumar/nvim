@@ -7,6 +7,6 @@ vim.bo.tabstop=2
 vim.bo.smartindent = true
 -- Set mouse property
 vim.cmd[[set mouse=a]]
--- vim.cmd[[set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<]]
+vim.cmd[[set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<]]
 -- vim.cmd[[au VimEnter *  NERDTree]]
 vim.opt.termguicolors = true

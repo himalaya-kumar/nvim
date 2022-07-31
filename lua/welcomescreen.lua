@@ -1,6 +1,26 @@
-require('goolord/alpha-nvim').{
+
+require('packer').use {
+    'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
-}
+        -- require'alpha'.setup(require'alpha.themes.startify'.config)
+	local alpha = require'alpha'
+	local startify = require 'alpha.themes.startify'
+			
+	alpha.setup(startify.config)
+    end   
+   }
+
+
+-- From Line 38 
+	--startify.section.header.val = {
+--	[[]], 
+--[[ ░█████╗░░██╗░░░░░░░██╗░██████╗░█████╗░███╗░░░███╗███████╗  ░█████╗░██╗░░░░░░██████╗░░█████╗░ ]]
+--[[ ██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗████╗░████║██╔════╝  ██╔══██╗██║░░░░░██╔════╝░██╔══██╗ ]]
+--[[ ███████║░╚██╗████╗██╔╝╚█████╗░██║░░██║██╔████╔██║█████╗░░  ███████║██║░░░░░██║░░██╗░██║░░██║ ]]
+--[[ ██╔══██║░░████╔═████║░░╚═══██╗██║░░██║██║╚██╔╝██║██╔══╝░░  ██╔══██║██║░░░░░██║░░╚██╗██║░░██║ ]]
+--[[ ██║░░██║░░╚██╔╝░╚██╔╝░██████╔╝╚█████╔╝██║░╚═╝░██║███████╗  ██║░░██║███████╗╚██████╔╝╚█████╔╝ ]]
+--[[ ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝  ╚═╝░░╚═╝╚══════╝░╚═════╝░░╚════╝░ ]]
+--				[[]]
+--	}
+

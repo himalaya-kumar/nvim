@@ -24,37 +24,42 @@ require('packer').startup( function()
   use 'williamboman/nvim-lsp-installer'
   use 'kyazdani42/nvim-web-devicons'
   use {'neoclide/coc.nvim', branch = 'release'}
+  use { 'mhartington/formatter.nvim' }
   -- jdtls
   use 'mfussenegger/nvim-jdtls'
 
+  -- Toggle Term
+  use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+  	require("toggleterm").setup
+	{
+	size=40,
+	direction = 'float',
+	open_mapping = [[<c-\>]],
+	close_mapping = [[<c-n>]],
+--	float_opts = {
+--		border ='curved',
+--		width = 40,
+--		height = 15,
+--		winblend = 3,
+	}
+--	}
+  end}
   -- welcome screen
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
+--  use {
+--    'goolord/alpha-nvim',
+--    requires = { 'kyazdani42/nvim-web-devicons' },
+--    config = function ()
         -- require'alpha'.setup(require'alpha.themes.startify'.config)
-	local alpha = require'alpha'
-	local startify = require 'alpha.themes.startify'
+--	local alpha = require'alpha'
+--	local startify = require 'alpha.themes.startify'
 			
-	alpha.setup(startify.config)
-    end   
-   }
+--	alpha.setup(startify.config)
+--    end   
+--   }
 end)
 
 -- Nord Color Setup
 require ('lualine').setup({options = { theme = 'nord' }})
 -- Night fly
 -- require('lualine').setup({options = {theme = 'nightfly'}})
-
--- From Line 38 
-	--startify.section.header.val = {
---	[[]], 
---[[ ░█████╗░░██╗░░░░░░░██╗░██████╗░█████╗░███╗░░░███╗███████╗  ░█████╗░██╗░░░░░░██████╗░░█████╗░ ]]
---[[ ██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗████╗░████║██╔════╝  ██╔══██╗██║░░░░░██╔════╝░██╔══██╗ ]]
---[[ ███████║░╚██╗████╗██╔╝╚█████╗░██║░░██║██╔████╔██║█████╗░░  ███████║██║░░░░░██║░░██╗░██║░░██║ ]]
---[[ ██╔══██║░░████╔═████║░░╚═══██╗██║░░██║██║╚██╔╝██║██╔══╝░░  ██╔══██║██║░░░░░██║░░╚██╗██║░░██║ ]]
---[[ ██║░░██║░░╚██╔╝░╚██╔╝░██████╔╝╚█████╔╝██║░╚═╝░██║███████╗  ██║░░██║███████╗╚██████╔╝╚█████╔╝ ]]
---[[ ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝  ╚═╝░░╚═╝╚══════╝░╚═════╝░░╚════╝░ ]]
---				[[]]
---	}
 

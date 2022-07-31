@@ -1,7 +1,7 @@
 require('config')
 require('keybindings')
 require('packerPlugins')
--- require('nordSetting')
+require('welcomescreen')
 
 require('packer').use { 'mhartington/formatter.nvim' }
 
