@@ -2,6 +2,8 @@ require('config')
 require('keybindings')
 require('packerPlugins')
 require('welcomescreen')
+-- require('nordsetting')
+require('nightflyTheme')
 
 require('packer').use { 'mhartington/formatter.nvim' }
 
@@ -32,18 +34,12 @@ end)
 --vim.api.nvim_exec([[au VimEnter *  NERDTree]],false)
 --require("nvim-tree").setup()
 
--- Nord Color Scheme Activation
-vim.cmd[[colorscheme nord]]
 
 -- Night fly color Scheme
 -- vim.cmd[[colorscheme nightfly]]
 -- vim.cmd[[set termguicolors]]
 -- vim.g.nightflyCursorColor = 1
 -- vim.g.nightflyItalics = 1
--- Load the colorscheme
-vim.g.nord_borders = true
-vim.g.nord_italic = false
-vim.g.nord_enable_sidebar_background = false
-require('nord').set()
 
-require ('lualine').setup({options = { theme = 'nord' }})
+-- require ('lualine').setup({options = { theme = 'nord' }})
+-- require ('lualine').setup({options = { theme = 'nightfly' }})

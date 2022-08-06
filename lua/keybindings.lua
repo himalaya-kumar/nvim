@@ -9,4 +9,6 @@ keymap('n','<c-h>','<c-w>h',opts)
 keymap('n','<c-k>','<c-w>k',opts)
 keymap('n','<c-l>','<c-w>l',opts)
 
-
+keymap('n','<c-d>','yyp',opts)
+keymap('i','<c-d>','<ESC>yyp',opts)
+keymap('n','<c-x>','dd',opts)

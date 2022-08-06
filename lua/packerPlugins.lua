@@ -1,10 +1,6 @@
 require('packer').startup( function()
   -- Packer 
   use 'wbthomason/packer.nvim'
-  -- nord colorscheme
-  use 'shaunsingh/nord.nvim'
-  -- Night fly colorscheme
-  use 'bluz71/vim-nightfly-guicolors'
 
 --  use 'preservim/nerdtree'
   use { 'nvim-lualine/lualine.nvim',
