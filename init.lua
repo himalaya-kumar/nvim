@@ -4,14 +4,14 @@ require('packerPlugins')
 require('welcomescreen')
 -- require('nordsetting')
 require('nightflyTheme')
-
+require('codeFormatter')
 require('packer').use { 'mhartington/formatter.nvim' }
 
 local configs = require('nvim-treesitter.configs')
   configs.setup {
     ensure_installed = "java", -- Only use parsers that are maintained
     highlight = { -- enable highlighting
-      enable = true, 
+     enable = true, 
 
     },
   indent = {
@@ -20,20 +20,15 @@ local configs = require('nvim-treesitter.configs')
 
 }
 
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-  server:setup(opts)
-end)
-
 -- For FOlding code 
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Open nvim tree
---vim.api.nvim_exec([[au VimEnter *  NERDTree]],false)
+-- vim.api.nvim_exec([[au VimEnter *  NERDTree]],false)
 --require("nvim-tree").setup()
 
+-- vim.api.nvim_exec([[set list]],false)
 
 -- Night fly color Scheme
 -- vim.cmd[[colorscheme nightfly]]
@@ -43,3 +38,6 @@ end)
 
 -- require ('lualine').setup({options = { theme = 'nord' }})
 -- require ('lualine').setup({options = { theme = 'nightfly' }})
+--
+vim.api.nvim_exec([[inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]],false)
+ 

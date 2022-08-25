@@ -7,9 +7,9 @@ vim.bo.tabstop=2
 vim.bo.smartindent = true
 -- Set mouse property
 vim.cmd[[set mouse=a]]
-vim.cmd[[set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<]]
+vim.cmd[[set list]]
 -- vim.cmd[[au VimEnter *  NERDTree]]
 vim.opt.termguicolors = true
 
-vim.cmd[[inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"]]
-vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]
+--vim.cmd[[inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"]]
+--vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]

@@ -22,7 +22,12 @@ require('packer').startup( function()
   use {'neoclide/coc.nvim', branch = 'release'}
   use { 'mhartington/formatter.nvim' }
   -- jdtls
-  use 'mfussenegger/nvim-jdtls'
+  -- use 'mfussenegger/nvim-jdtls'
+  --LSP
+  use {
+    "williamboman/nvim-lsp-installer",
+    "neovim/nvim-lspconfig",
+  }
 
   -- Toggle Term
   use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
