@@ -1,5 +1,5 @@
 vim.wo.number = true
-vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 vim.bo.expandtab=true
 vim.bo.shiftwidth=2
 vim.bo.softtabstop=2
@@ -13,3 +13,4 @@ vim.opt.termguicolors = true
 
 --vim.cmd[[inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"]]
 --vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]
+vim.cmd[[inoremap ff <Esc>]]

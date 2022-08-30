@@ -2,8 +2,11 @@ require('config')
 require('keybindings')
 require('packerPlugins')
 require('welcomescreen')
--- require('nordsetting')
+require('nordSetting')
 require('nightflyTheme')
+-- require('nordSetting2')
+-- require('catppuccinTheme')
+require('colorScheme')
 require('codeFormatter')
 require('packer').use { 'mhartington/formatter.nvim' }
 
