@@ -6,7 +6,7 @@ require('nordSetting')
 require('nightflyTheme')
 -- require('nordSetting2')
 -- require('catppuccinTheme')
-require('colorScheme')
+-- require('colorScheme')
 require('codeFormatter')
 require('packer').use { 'mhartington/formatter.nvim' }
 
@@ -43,4 +43,5 @@ local configs = require('nvim-treesitter.configs')
 -- require ('lualine').setup({options = { theme = 'nightfly' }})
 --
 vim.api.nvim_exec([[inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]],false)
- 
+-- vim.api.nvim_exec([[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"]],false)
+vim.api.nvim_exec([[inoremap <silent><expr> <c-space> coc#refresh()]],false) 

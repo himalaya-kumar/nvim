@@ -13,4 +13,6 @@ vim.opt.termguicolors = true
 
 --vim.cmd[[inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"]]
 --vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]
-vim.cmd[[inoremap ff <Esc>]]
+-- vim.cmd[[inoremap ff <Esc>]]
+
+

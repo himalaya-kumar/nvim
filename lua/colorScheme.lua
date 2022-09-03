@@ -1,7 +1,7 @@
 require('packer').use{ 'flazz/vim-colorschemes' }
 
--- Nord Color Scheme Activation
--- vim.cmd[[colorscheme darksea]]
+-- duotone-darksea Color Scheme Activation
+vim.cmd[[colorscheme duotone-darksea]]
 
 -- Nord Color Setup
 
@@ -12,4 +12,4 @@ require('packer').use{ 'flazz/vim-colorschemes' }
 
 -- require('nord').set()
 
--- require ('lualine').setup({options = { theme = 'nord' }})
+require ('lualine').setup({options = { theme = 'duotone-darksea' }})
