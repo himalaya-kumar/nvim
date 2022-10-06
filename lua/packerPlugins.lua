@@ -2,18 +2,16 @@ require('packer').startup( function()
   -- Packer 
   use 'wbthomason/packer.nvim'
 
---  use 'preservim/nerdtree'
+  --  use 'preservim/nerdtree'
+  
   use { 'nvim-lualine/lualine.nvim',
   	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  
-  -- Nerd Tree and night time theme
   use 'scrooloose/nerdtree'
   use 'ryanoasis/vim-devicons'
   use 'mhartington/oceanic-next'
---  use 'preservim/nerdtree'
---  use 'Xuyuanp/nerdtree-git-plugin'
-	
+  use 'nvim-lua/plenary.nvim'
+
   -- IDE
   use 'nvim-treesitter/nvim-treesitter'
   use 'neovim/nvim-lspconfig'
@@ -21,18 +19,12 @@ require('packer').startup( function()
   use 'kyazdani42/nvim-web-devicons'
   use {'neoclide/coc.nvim', branch = 'release'}
   use { 'mhartington/formatter.nvim' }
-  -- jdtls
-  -- use 'mfussenegger/nvim-jdtls'
-  --LSP
-  use {
-    "williamboman/nvim-lsp-installer",
-    "neovim/nvim-lspconfig",
-  }
+-- LSP
+  use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
 
-  -- Toggle Term
+-- Toggle Term
   use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-  	require("toggleterm").setup
-	{
+  	require("toggleterm").setup{
 	size=40,
 	direction = 'float',
 	open_mapping = [[<c-\>]],
@@ -42,21 +34,10 @@ require('packer').startup( function()
 --		width = 40,
 --		height = 15,
 --		winblend = 3,
-	}
+		}
 --	}
-  end}
-  -- welcome screen
---  use {
---    'goolord/alpha-nvim',
---    requires = { 'kyazdani42/nvim-web-devicons' },
---    config = function ()
-        -- require'alpha'.setup(require'alpha.themes.startify'.config)
---	local alpha = require'alpha'
---	local startify = require 'alpha.themes.startify'
-			
---	alpha.setup(startify.config)
---    end   
---   }
+     end}
+
 end)
 
 -- Nord Color Setup

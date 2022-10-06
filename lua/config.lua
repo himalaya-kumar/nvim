@@ -15,4 +15,9 @@ vim.opt.termguicolors = true
 --vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]
 vim.cmd[[inoremap ii <Esc>]]
 
+vim.cmd[[map <C-n> :NERDTreeToggle<CR>]]
 
+
+-- For FOlding code 
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

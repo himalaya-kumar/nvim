@@ -12,3 +12,6 @@ keymap('n','<c-l>','<c-w>l',opts)
 keymap('n','<c-d>','yyp',opts)
 keymap('i','<c-d>','<ESC>yyp',opts)
 keymap('n','<c-x>','dd',opts)
+
+keymap("n",'<c-t>','<cmd>Telescope live_grep<cr>',opts)
+
