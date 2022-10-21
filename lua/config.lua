@@ -8,14 +8,14 @@ vim.bo.smartindent = true
 -- Set mouse property
 vim.cmd[[set mouse=a]]
 vim.cmd[[set list]]
--- vim.cmd[[au VimEnter *  NERDTree]]
+vim.cmd[[au VimEnter *  NeoTreeRevealToggle]]
 vim.opt.termguicolors = true
 
 --vim.cmd[[inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"]]
 --vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]
 vim.cmd[[inoremap ii <Esc>]]
 
-vim.cmd[[map <C-n> :NERDTreeToggle<CR>]]
+vim.cmd[[map <C-n> :NeoTreeRevealToggle<CR>]]
 
 
 -- For FOlding code 

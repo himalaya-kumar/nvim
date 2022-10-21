@@ -12,7 +12,8 @@ require('nightFox')
 require('codeFormatter')
 -- require('tundraTheme')
 require('telescope')
+require('lsp_autocomplete')
 
 
-vim.api.nvim_exec([[inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]],false)
-vim.api.nvim_exec([[inoremap <silent><expr> <c-space> coc#refresh()]],false) 
+-- vim.api.nvim_exec([[inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]],false)
+-- vim.api.nvim_exec([[inoremap <silent><expr> <c-space> coc#refresh()]],false) 
