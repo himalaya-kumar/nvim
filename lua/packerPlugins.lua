@@ -2,7 +2,6 @@ require('packer').startup( function()
   -- Packer 
   use 'wbthomason/packer.nvim'
 
-  --  use 'preservim/nerdtree'
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -13,9 +12,6 @@ require('packer').startup( function()
     }
   }
 
-  use { 'nvim-lualine/lualine.nvim',
-  	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
   use 'ryanoasis/vim-devicons'
   use 'mhartington/oceanic-next'
   use 'nvim-lua/plenary.nvim'
@@ -23,9 +19,6 @@ require('packer').startup( function()
   -- IDE
   use 'kyazdani42/nvim-web-devicons'
   use {'neoclide/coc.nvim', branch = 'release'}
-  use { 'mhartington/formatter.nvim' }
--- LSP
-  use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
 
 -- Toggle Term
   use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
@@ -68,7 +61,7 @@ require('packer').startup( function()
 end)
 
 -- Nord Color Setup
-require ('lualine').setup({options = { theme = 'nord' }})
+-- require ('lualine').setup({options = { theme = 'nord' }})
 -- Night fly
 -- require('lualine').setup({options = {theme = 'nightfly'}})
 

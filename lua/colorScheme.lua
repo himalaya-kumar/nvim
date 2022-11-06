@@ -12,4 +12,4 @@ vim.cmd[[colorscheme duotone-darksea]]
 
 -- require('nord').set()
 
-require ('lualine').setup({options = { theme = 'duotone-darksea' }})
+-- require ('lualine').setup({options = { theme = 'duotone-darksea' }})

@@ -7,4 +7,4 @@ vim.g.nightflyCursorColor = 1
 vim.g.nightflyItalics = 0
 
 
-require ('lualine').setup({options = { theme = 'nightfly' }})
+-- require ('lualine').setup({options = { theme = 'nightfly' }})
