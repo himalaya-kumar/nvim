@@ -17,6 +17,7 @@ vim.cmd[[inoremap ii <Esc>]]
 
 vim.cmd[[map <C-n> :NvimTreeToggle<CR>]]
 
+vim.cmd[[map <C-m> :BufferNext<CR>]]
 
 -- For FOlding code 
 -- vim.opt.foldmethod = "expr"
