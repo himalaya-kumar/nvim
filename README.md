@@ -1,1 +1,7 @@
-This is custom setup of neovim, Please do not consider this any official setup.
+# ODIN
+## An custom set up for neovim using the open source plugins.
+### Requirement **Neovim version > 0.7,python3,Node16+,fuzzy finder**
+
+- #### File Tree: Nvim Tree
+- #### Theme : Night fox and nord 
+
