@@ -1,6 +1,6 @@
 require('packer').use { 'EdenEast/nightfox.nvim' }
 
-vim.cmd[[colorscheme dayfox]]
+vim.cmd[[colorscheme nightfox]]
 vim.cmd[[set termguicolors]]
 
 
