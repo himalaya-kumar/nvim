@@ -74,7 +74,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = "nightfly",
+    theme = "nightfox",
     component_separators = '',
     section_separators = { left = '', right = '' },
   },

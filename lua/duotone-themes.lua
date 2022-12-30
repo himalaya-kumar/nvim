@@ -1,10 +1,11 @@
-require('packer').use { 'atelierbram/Base2Tone-nvim' }
+-- require('packer').use { 'atelierbram/Base2Tone-nvim' }
+-- require('packer').use { 'marko-cerovac/material.nvim' }
 
 -- dark schemes
 -- vim.cmd("colorscheme base2tone_evening_dark")
 -- or any of the other schemes:
 -- vim.cmd("colorscheme base2tone_morning_dark")
-vim.cmd("colorscheme base2tone_sea_dark")
+-- vim.cmd("colorscheme base2tone_sea_dark")
 -- vim.cmd("colorscheme base2tone_space_dark")
 -- vim.cmd("colorscheme base2tone_earth_dark")
 -- vim.cmd("colorscheme base2tone_forest_dark")
@@ -44,3 +45,8 @@ vim.cmd("colorscheme base2tone_sea_dark")
 -- vim.cmd("colorscheme base2tone_heath_light")
 -- vim.cmd("colorscheme base2tone_cave_light")
 -- vim.cmd("colorscheme base2tone_motel_light")
+
+require('packer').use { 'marko-cerovac/material.nvim' }
+-- vim.cmd 'colorscheme material'
+vim.g.material_style = "palenight"
+
