@@ -5,7 +5,7 @@ require('welcomescreen')
 require('nightFox')
 require('codeFormatter')
 require('telescope')
--- require('lsp_autocomplete')
+require('lsp_autocomplete')
 require('lualine-setup')
 require('tabline')
 
