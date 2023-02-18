@@ -74,7 +74,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = "nightfox",
+    theme = codeschool,
     component_separators = '',
     section_separators = { left = '', right = '' },
   },

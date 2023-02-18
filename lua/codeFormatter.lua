@@ -1,4 +1,4 @@
--- require('packer').use {'sbdchd/neoformat'}
+require('packer').use { 'vim-autoformat/vim-autoformat' }
 
 -- let g:neoformat_try_node_exe=1
 
