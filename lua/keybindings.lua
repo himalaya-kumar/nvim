@@ -14,4 +14,7 @@ keymap('i','<c-d>','<ESC>yyp',opts)
 keymap('n','<c-x>','dd',opts)
 
 keymap("n",'<c-t>','<cmd>Telescope live_grep<cr>',opts)
+keymap("n",'<c-y>','<cmd>Telescope find_files<cr>',opts)
+keymap("n",'<A-j>','ddjP',opts)
+keymap("n",'<A-k>','ddkP',opts)
 
