@@ -1,19 +1,20 @@
---local lsp = require('lsp-zero')
+local lsp = require('lsp-zero')
 
---lsp.preset('recommended')
+lsp.preset('recommended')
 
 
---lsp.setup_nvim_cmp({
---  completion = {autocomplete = false}
---})
+lsp.setup_nvim_cmp({
+  completion = {autocomplete = false}
+})
 
--- lsp.setup()
+lsp.setup()
 
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
-		"jdtls"
+		"jdtls",
+		"gopls"
 	}
 });
 
@@ -43,3 +44,6 @@ require("lspconfig").jdtls.setup {
 	on_attach = on_attach
 }
 
+require("lspconfig").gopls.setup {
+ 	on_attach = on_attach
+}
