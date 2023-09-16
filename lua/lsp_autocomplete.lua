@@ -1,13 +1,54 @@
-local lsp = require('lsp-zero')
+require('packer').use {
+	-- Detect tabstop and shiftwidth automatically
+	'tpope/vim-sleuth',
+	-- Add indentation guides even on blank lines
+	'lukas-reineke/indent-blankline.nvim',
+	'numToStr/Comment.nvim',
+}
 
-lsp.preset('recommended')
+require("packer").use {
+	-- LSP Configuration & Plugins
+	'neovim/nvim-lspconfig',
+	requires = {
+		-- Automatically install LSPs to stdpath for neovim
+		{ 'williamboman/mason.nvim', config = true },
+		'williamboman/mason-lspconfig.nvim',
+		-- Useful status updates for LSP
+		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 
+		{
+			'j-hui/fidget.nvim',
+			tag = 'legacy',
+			config = function()
+				require('fidget').setup {}
+			end,
+		},
+		-- Additional lua configuration, makes nvim stuff amazing!
+		'folke/neodev.nvim',
+	},
+}
 
-lsp.setup_nvim_cmp({
-  completion = {autocomplete = false}
-})
+require('packer').use {
+	'hrsh7th/nvim-cmp',
+	requires = {
+		-- Snippet Engine & its associated nvim-cmp source
+		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip',
 
-lsp.setup()
+		-- Adds LSP completion capabilities
+		'hrsh7th/cmp-nvim-lsp',
+
+		-- Adds a number of user-friendly snippets
+		'rafamadriz/friendly-snippets',
+	}
+}
+
+require('indent_blankline').setup {
+	-- Enable `lukas-reineke/indent-blankline.nvim`
+	-- See `:help indent_blankline.txt`
+	char = '┊',
+	show_trailing_blankline_indent = false,
+}
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -45,5 +86,5 @@ require("lspconfig").jdtls.setup {
 }
 
 require("lspconfig").gopls.setup {
- 	on_attach = on_attach
+	on_attach = on_attach
 }

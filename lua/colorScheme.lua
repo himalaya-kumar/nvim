@@ -1,7 +1,7 @@
-require('packer').use{ 'flazz/vim-colorschemes' }
+require('packer').use { 'flazz/vim-colorschemes' }
 
 -- duotone-darksea Color Scheme Activation
-vim.cmd[[colorscheme duotone-darksea]]
+vim.cmd [[colorscheme duotone-darksea]]
 
 -- Nord Color Setup
 

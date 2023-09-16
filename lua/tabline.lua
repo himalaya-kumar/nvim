@@ -1,5 +1,5 @@
-require('packer').use{  'romgrk/barbar.nvim',
-  requires = {'kyazdani42/nvim-web-devicons'}
+require('packer').use { 'romgrk/barbar.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons' }
 }
 
 local map = vim.api.nvim_set_keymap
@@ -50,7 +50,7 @@ local nvim_tree_events = require('nvim-tree.events')
 local bufferline_api = require('bufferline.api')
 
 local function get_tree_size()
-  return require'nvim-tree.view'.View.width
+  return require 'nvim-tree.view'.View.width
 end
 
 nvim_tree_events.subscribe('TreeOpen', function()

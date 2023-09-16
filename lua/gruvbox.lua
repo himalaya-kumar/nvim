@@ -17,4 +17,4 @@ vim.g.gruvbox_baby_telescope_theme = 1
 -- vim.g.gruvbox_baby_transparent_mode = 1
 
 -- Load the colorscheme
-vim.cmd[[colorscheme gruvbox-baby]]
+vim.cmd [[colorscheme gruvbox-baby]]

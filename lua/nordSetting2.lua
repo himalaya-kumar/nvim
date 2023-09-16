@@ -1,4 +1,4 @@
-require('packer').use {'rmehri01/onenord.nvim'}
+require('packer').use { 'rmehri01/onenord.nvim' }
 
 require('onenord').setup()
 

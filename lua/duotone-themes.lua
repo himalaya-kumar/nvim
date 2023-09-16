@@ -49,4 +49,3 @@
 require('packer').use { 'marko-cerovac/material.nvim' }
 -- vim.cmd 'colorscheme material'
 vim.g.material_style = "palenight"
-

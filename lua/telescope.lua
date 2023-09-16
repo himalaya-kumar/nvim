@@ -1,4 +1,4 @@
-require( 'packer' ).use {"nvim-telescope/telescope.nvim"}
+require('packer').use { "nvim-telescope/telescope.nvim" }
 
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
@@ -89,7 +89,7 @@ telescope.setup {
     -- builtin picker
   },
   extensions =
- {
+  {
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,

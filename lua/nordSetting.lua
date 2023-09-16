@@ -1,6 +1,6 @@
-require('packer').use{ 'shaunsingh/nord.nvim' }
+require('packer').use { 'shaunsingh/nord.nvim' }
 -- Nord Color Scheme Activation
-vim.cmd[[colorscheme nord]]
+vim.cmd [[colorscheme nord]]
 
 -- Nord Color Setup
 

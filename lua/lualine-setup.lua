@@ -1,8 +1,8 @@
 require("packer").use { 'nvim-lualine/lualine.nvim',
-  	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+}
 
-  local colors = {
+local colors = {
   red = '#ca1243',
   grey = '#a0a1a7',
   black = '#383a42',
@@ -95,8 +95,8 @@ require('lualine').setup {
         sections = { 'warn' },
         diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
       },
-      { 'filename', file_status = false, path = 1 },
-      { modified, color = { bg = colors.red } },
+      { 'filename', file_status = false,        path = 1 },
+      { modified,   color = { bg = colors.red } },
       {
         '%w',
         cond = function()
