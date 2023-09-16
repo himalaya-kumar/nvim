@@ -2,5 +2,36 @@
     "diagnostics.globals": [
         "vim",
         "opts"
+    ],
+    "workspace.library": [
+        "/home/odin/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
+        "/squashfs-root/usr/share/nvim/runtime/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/LuaSnip/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/alpha-nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/barbar.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/cmp_luasnip/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/coc.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/fidget.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/gruvbox-baby/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/lualine.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/mason.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/neodev.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nightfox.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nvim-tree.lua/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nvim-treesitter/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/packer.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/plenary.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua",
+        "/home/odin/.local/share/nvim/site/pack/packer/start/toggleterm.nvim/lua",
+        "/home/odin/.config/nvim/lua",
+        "${3rd}/luv/library"
     ]
 }
