@@ -7,7 +7,7 @@ require('packer').startup(function()
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
-		tag = 'nightly'                -- optional, updated every week. (see issue #1193)
+		tag = 'nightly'   -- optional, updated every week. (see issue #1193)
 	}
 	require('nvim-tree').setup()
 
@@ -16,7 +16,7 @@ require('packer').startup(function()
 	use 'nvim-lua/plenary.nvim'
 
 	use 'sbdchd/neoformat'
-
+	use 'christoomey/vim-tmux-navigator'
 	-- IDE
 	use 'kyazdani42/nvim-web-devicons'
 	use { 'neoclide/coc.nvim', branch = 'release' }
