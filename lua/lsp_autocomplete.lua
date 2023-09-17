@@ -5,8 +5,8 @@ require('packer').use {
 	'lukas-reineke/indent-blankline.nvim',
 }
 
-require('packer').use {'numToStr/Comment.nvim'}
-require('Comment').setup()
+require('packer').use { 'terrortylor/nvim-comment' }
+require('nvim_comment').setup()
 
 require("packer").use {
 	-- LSP Configuration & Plugins
