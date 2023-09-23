@@ -169,6 +169,7 @@ return {
     end
   },
   require 'themes.gruvbox_baby_setup',
+  require 'themes.nightfox_setup',
   require 'dev.debug',
   require 'dev.autoformat',
   require 'themes.tabline_setup'

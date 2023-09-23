@@ -3,10 +3,10 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd([[colorscheme nightfox]])
+    --   vim.cmd([[colorscheme nightfox]])
   end
 }
 
 -- TO ADD Multiline comment in lua
-  --[=====[
+--[=====[
 --]=====]
