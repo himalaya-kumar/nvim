@@ -1,32 +1,5 @@
 return {
   -- NOTE: First, some plugins that don't require any configuration
-  {
-    "luisiacc/gruvbox-baby",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme gruvbox-baby]])
-    end,
-  },
-  {
-    "EdenEast/nightfox.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme nightfox]])
-    end
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      -- Color Scheme Activation
-      vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
-      vim.cmd [[colorscheme catppuccin]]
-      -- require( 'lualine' ).setup {options = {theme = 'catppuccin'}}
-    end
-  },
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -194,5 +167,9 @@ return {
       alpha.setup(startify.config)
       --     require'alpha'.setup(require'alpha.themes.startify'.config)
     end
-  }
+  },
+  require 'themes.gruvbox_baby_setup',
+  require 'dev.debug',
+  require 'dev.autoformat'
+  
 }
