@@ -1,4 +1,0 @@
-{
-  "java.format.settings.url": "/home/odin/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
-  "java.jdt.ls.vmargs": "-javaagent:~/.local/share/lombok-1.18.26.jar -Xbootclasspath/a:~/.local/share/lombok-1.18.26.jar"
-}

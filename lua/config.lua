@@ -1,3 +1,5 @@
+-- NOTE: Make sure terminal supports this
+vim.o.termguicolors = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.bo.expandtab = true
@@ -5,23 +7,37 @@ vim.bo.shiftwidth = 2
 vim.bo.softtabstop = 2
 vim.bo.tabstop = 2
 vim.bo.smartindent = true
--- Set mouse property
-vim.cmd [[set mouse=a]]
-vim.cmd [[set list]]
--- vim.cmd[[au VimEnter *  NvimTreeToggle]]
-vim.opt.termguicolors = true
 
--- vim.cmd[[inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"]]
--- vim.cmd[[inoremap <silent><expr> <cr> "\<c-g>u\<CR>"]]
-vim.cmd [[inoremap ii <Esc>]]
+-- Enable mouse mode
+vim.o.mouse = 'a'
 
-vim.cmd [[map <C-n> :NvimTreeToggle<CR>]]
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.o.clipboard = 'unnamedplus'
 
-vim.cmd [[map <C-m> :BufferNext<CR>]]
+-- Enable break indent
+vim.o.breakindent = true
 
--- For FOlding code
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
---
-vim.api.nvim_exec([[inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]], false)
-vim.api.nvim_exec([[inoremap <silent><expr> <c-space> coc#refresh()]], false)
+-- Save undo history
+vim.o.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- Set <space> as the leader key
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+

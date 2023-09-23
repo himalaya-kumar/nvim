@@ -1,7 +1,3 @@
-require("packer").use { 'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-}
-
 local colors = {
   red = '#ca1243',
   grey = '#a0a1a7',
@@ -74,7 +70,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = codeschool,
+    theme = 'nightfox',
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
