@@ -172,5 +172,6 @@ return {
   require 'themes.nightfox_setup',
   require 'dev.debug',
   require 'dev.autoformat',
-  require 'themes.tabline_setup'
+  require 'themes.tabline_setup',
+  require 'dev.toggle_term',
 }
