@@ -170,6 +170,6 @@ return {
   },
   require 'themes.gruvbox_baby_setup',
   require 'dev.debug',
-  require 'dev.autoformat'
-  
+  require 'dev.autoformat',
+  require 'themes.tabline_setup'
 }
