@@ -1,4 +1,4 @@
-local colors = {
+local slanted_gaps_colors = {
   red = '#ca1243',
   grey = '#a0a1a7',
   black = '#383a42',
@@ -10,14 +10,14 @@ local colors = {
 
 local theme = {
   normal = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.white },
-    z = { fg = colors.white, bg = colors.black },
+    a = { fg = slanted_gaps_colors.white, bg = slanted_gaps_colors.black },
+    b = { fg = slanted_gaps_colors.white, bg = slanted_gaps_colors.grey },
+    c = { fg = slanted_gaps_colors.black, bg = slanted_gaps_colors.white },
+    z = { fg = slanted_gaps_colors.white, bg = slanted_gaps_colors.black },
   },
-  insert = { a = { fg = colors.black, bg = colors.light_green } },
-  visual = { a = { fg = colors.black, bg = colors.orange } },
-  replace = { a = { fg = colors.black, bg = colors.green } },
+  insert = { a = { fg = slanted_gaps_colors.black, bg = slanted_gaps_colors.light_green } },
+  visual = { a = { fg = slanted_gaps_colors.black, bg = slanted_gaps_colors.orange } },
+  replace = { a = { fg = slanted_gaps_colors.black, bg = slanted_gaps_colors.green } },
 }
 
 local empty = require('lualine.component'):extend()
@@ -34,7 +34,8 @@ local function process_sections(sections)
   for name, section in pairs(sections) do
     local left = name:sub(9, 10) < 'x'
     for pos = 1, name ~= 'lualine_z' and #section or #section - 1 do
-      table.insert(section, pos * 2, { empty, color = { fg = colors.white, bg = colors.white } })
+      table.insert(section, pos * 2,
+        { empty, color = { fg = slanted_gaps_colors.white, bg = slanted_gaps_colors.white } })
     end
     for id, comp in ipairs(section) do
       if type(comp) ~= 'table' then
@@ -42,6 +43,7 @@ local function process_sections(sections)
         section[id] = comp
       end
       comp.separator = left and { right = '' } or { left = '' }
+      -- comp.separator = left and { right = '' } or { left = '' }
     end
   end
   return sections
@@ -70,7 +72,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = 'nightfox',
+    --   theme = "",
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
@@ -83,16 +85,16 @@ require('lualine').setup {
         'diagnostics',
         source = { 'nvim' },
         sections = { 'error' },
-        diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
+        diagnostics_color = { error = { bg = slanted_gaps_colors.red, fg = slanted_gaps_colors.white } },
       },
       {
         'diagnostics',
         source = { 'nvim' },
         sections = { 'warn' },
-        diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
+        diagnostics_color = { warn = { bg = slanted_gaps_colors.orange, fg = slanted_gaps_colors.white } },
       },
-      { 'filename', file_status = false,        path = 1 },
-      { modified,   color = { bg = colors.red } },
+      { 'filename', file_status = false,                     path = 1 },
+      { modified,   color = { bg = slanted_gaps_colors.red } },
       {
         '%w',
         cond = function()
@@ -122,3 +124,11 @@ require('lualine').setup {
     lualine_x = {},
   },
 }
+--
+-- dark theme
+-- require("lualine").setup {
+--   options = {
+--     theme = "newpaper-dark"
+--     -- empty with newpaper colorscheme
+--   }
+-- }

@@ -1,5 +1,5 @@
 -- NOTE: Make sure terminal supports this
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.bo.expandtab = true
@@ -41,3 +41,5 @@ vim.o.completeopt = 'menuone,noselect'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- for default tab and space
+vim.opt.list = true
