@@ -3,6 +3,7 @@ return {
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'nvim-lualine/lualine.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -75,30 +76,6 @@ return {
   },
 
 
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'nightfox',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
-  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -143,9 +120,10 @@ return {
       require("nvim-tree").setup {}
     end,
   },
+  require 'themes.oceanic_next_theme_setup',
+  require 'themes.nightfox_setup',
   require 'themes.alpha_setup',
-  require 'themes.gruvbox_baby_setup',
-  require 'themes.tokyo_night_theme',
+  require 'themes.blankline_setting',
   require 'themes.tabline_setup',
   require 'dev.debug',
   require 'dev.autoformat',
