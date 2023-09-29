@@ -120,8 +120,7 @@ return {
       require("nvim-tree").setup {}
     end,
   },
-  require 'themes.gruvbox_material_setup',
-  require 'themes.nightfox_setup',
+  require 'themes.oceanic_next_theme_setup',
   require 'themes.alpha_setup',
   require 'themes.blankline_setting',
   require 'themes.tabline_setup',

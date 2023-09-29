@@ -33,7 +33,7 @@ local bubbles_theme = {
 
 require('lualine').setup {
   options = {
-    -- theme = 'onenord',
+    theme = bubbles_theme,
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },
