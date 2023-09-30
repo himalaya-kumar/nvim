@@ -4,7 +4,6 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'nvim-lualine/lualine.nvim',
-
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -124,6 +123,7 @@ return {
   require 'themes.alpha_setup',
   require 'themes.blankline_setting',
   require 'themes.tabline_setup',
+  require 'themes.bubbly_setup',
   require 'dev.debug',
   require 'dev.autoformat',
   require 'dev.toggle_term',
