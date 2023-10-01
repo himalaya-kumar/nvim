@@ -23,23 +23,22 @@ return {
       enable = true,
       space_char_blankline = " ",
       indent = {
-        char = "▎",
+        char = "",
         tab_char = "▎",
-        highlight = { "IndentBlanklineChar" },
+        highlight = { "IblIndent" },
       },
       whitespace = {
         enable = true,
         remove_blankline_trail = true,
-        highlight = { "IndentBlanklineSpaceChar" },
+        highlight = { "IblWhitespace" },
       },
       scope = {
         enabled = true,
         char = "▎",
-        -- Enable this to get highlight value
         show_start = false,
         show_end = false,
         injected_languages = true,
-        highlight = { "IndentBlanklineContextChar" },
+        highlight = { "IblScope" },
         priority = 1024,
         include = {
           node_type = {
