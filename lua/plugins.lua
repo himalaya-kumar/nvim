@@ -4,6 +4,7 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'nvim-lualine/lualine.nvim',
+  'christoomey/vim-tmux-navigator',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -119,7 +120,7 @@ return {
       require("nvim-tree").setup {}
     end,
   },
-  require 'themes.gruvbox_material_setup',
+  require 'themes.gruvbox_baby_setup',
   require 'themes.alpha_setup',
   require 'themes.blankline_setting',
   require 'themes.tabline_setup',
