@@ -35,7 +35,8 @@ return {
       scope = {
         enabled = true,
         char = "▎",
-        show_start = true,
+        -- Enable this to get highlight value
+        show_start = false,
         show_end = false,
         injected_languages = true,
         highlight = { "IndentBlanklineContextChar" },

@@ -20,6 +20,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    "olexsmir/gopher.nvim",
   },
   config = function()
     local dap = require 'dap'
