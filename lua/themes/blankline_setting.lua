@@ -20,8 +20,8 @@ return {
     vim.opt.listchars:append "precedes:<"
 
     indent_blankline.setup {
-      enable = true,
-      space_char_blankline = " ",
+      -- enable = true,
+      -- space_char_blankline = " ",
       indent = {
         char = "",
         -- char = "▎",
@@ -29,12 +29,12 @@ return {
         highlight = { "IblIndent" },
       },
       whitespace = {
-        enable = true,
+        -- enable = true,
         remove_blankline_trail = true,
         highlight = { "IblWhitespace" },
       },
       scope = {
-        enabled = true,
+        -- enabled = true,
         char = "▎",
         show_start = false,
         show_end = false,
@@ -69,15 +69,15 @@ return {
           },
         },
       },
-      buftype_exclude = { "terminal", "nofile", "FTerm", "alpha" },
-      exclude = {
-        "help",
-        "packer",
-        "NvimTree",
-        "conf",
-        "alpha",
-        "FTerm",
-      },
+      -- buftype_exclude = { "terminal", "nofile", "FTerm", "alpha" },
+      -- exclude = {
+      --   "help",
+      --   "packer",
+      --   "NvimTree",
+      --   "conf",
+      --   "alpha",
+      --   "FTerm",
+      -- },
     }
   end
 }
