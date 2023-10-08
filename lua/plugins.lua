@@ -1,4 +1,12 @@
 return {
+  require 'themes.nightfox_setup',
+  require 'themes.alpha_setup',
+  require 'themes.blankline_setting',
+  require 'themes.tabline_setup',
+  require 'themes.bubbly_setup',
+  require 'dev.debug',
+  require 'dev.autoformat',
+  require 'dev.toggle_term',
   -- NOTE: First, some plugins that don't require any configuration
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -120,12 +128,4 @@ return {
       require("nvim-tree").setup {}
     end,
   },
-  require 'themes.gruvbox_material_setup',
-  require 'themes.alpha_setup',
-  require 'themes.blankline_setting',
-  require 'themes.tabline_setup',
-  require 'themes.bubbly_setup',
-  require 'dev.debug',
-  require 'dev.autoformat',
-  require 'dev.toggle_term',
 }
