@@ -1,5 +1,5 @@
 return {
-  require 'themes.nightfox_setup',
+  require 'themes.gruvbox_baby_setup',
   require 'themes.alpha_setup',
   require 'themes.blankline_setting',
   require 'themes.tabline_setup',
