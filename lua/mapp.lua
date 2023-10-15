@@ -7,8 +7,10 @@ vim.cmd [[map <C-n> :NvimTreeToggle<CR>]]
 
 local keymap = vim.api.nvim_set_keymap
 -- Commenting these because trying to ctrl+s for tmux
--- keymap('n', '<c-s>', ':w<CR>', {})
--- keymap('i', '<c-s>', '<Esc>:w<CR>a', {})
+-- keymap('n', '<A-s>', ':w<CR>', {})
+-- keymap('i', '<A-s>', '<Esc>:w<CR>a', {})
+keymap('n', 'ss', ':w<CR>', {})
+keymap('i', 'ss', '<Esc>:w<CR>a', {})
 
 local opts = { noremap = true }
 keymap('n', '<c-j>', '<c-w>j', opts)
