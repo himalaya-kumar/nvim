@@ -1,9 +1,8 @@
 return {
-  require 'themes.gruvbox_baby_setup',
+  require 'themes.gruvbox-eight_setup',
   require 'themes.alpha_setup',
   require 'themes.blankline_setting',
   require 'themes.tabline_setup',
-  require 'themes.bubbly_setup',
   require 'dev.debug',
   require 'dev.autoformat',
   require 'dev.toggle_term',

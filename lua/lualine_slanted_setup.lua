@@ -72,7 +72,7 @@ end
 
 require('lualine').setup {
   options = {
-    --   theme = "",
+    theme = "gruvbox8_soft",
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
