@@ -11,7 +11,5 @@ return {
     vim.cmd([[set termguicolors]])
     vim.cmd([[set background=light]])
     require('lualine').setup {}
-    -- vim.cmd([[set t_8f=^[[38;2;%lu;%lu;%lum]])
-    -- vim.cmd([[set t_8b=^[[48;2;%lu;%lu;%lum]])
   end
 }
