@@ -10,5 +10,5 @@ return {
 	require("plugins.treeSitter"),
 	require("plugins.nvimTree"),
 	require("themes.alphaSetup"),
+	require("themes.tabline"),
 }
-
