@@ -52,7 +52,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
+-- vim.g.have_nerd_font = true
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
@@ -84,4 +84,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
-

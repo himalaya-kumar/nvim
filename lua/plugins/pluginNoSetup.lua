@@ -8,5 +8,5 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
+	{ "nvim-tree/nvim-web-devicons", opts = {} },
 }
-
