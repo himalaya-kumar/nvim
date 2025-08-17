@@ -35,3 +35,6 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 -- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Neovim's own terminal
+-- vim.cmd([[map <C-\> :terminal<CR>i]])
+vim.cmd([[map <C-\> :ToggleTerm<CR>]])

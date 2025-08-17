@@ -1,4 +1,6 @@
 return {
 	require("themes.alphaSetup"),
-	require("themes.catpuccin"),
+	require("themes.gruvbox8"),
+	require("themes.tabline"),
+	require("pluginsTesting.pluginsTesting.toggleTerm"),
 }
