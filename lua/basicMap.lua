@@ -36,7 +36,7 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Neovim's own terminal
-vim.api.nvim_set_keymap("n", "<leader>t", ":terminal<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-\\>", ":terminal<CR>", opts)
 vim.api.nvim_set_keymap("t", "ii", "<C-\\><C-n>", opts)
+vim.api.nvim_set_keymap("t", "aa", "<C-\\><C-n>", opts)
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", opts)
