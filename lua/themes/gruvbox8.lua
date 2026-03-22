@@ -9,6 +9,6 @@ return {
 		vim.g.gruvbox_bold = 1
 		vim.cmd([[colorscheme gruvbox8_soft]])
 		vim.cmd([[set termguicolors]])
-		vim.cmd([[set background=light]])
+		vim.cmd([[set background=dark]])
 	end,
 }
