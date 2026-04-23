@@ -8,10 +8,10 @@ return {
 
 		-- 2. Set the contrast for light mode
 		-- Options: 'hard', 'medium', 'soft'
-		vim.g.gruvbox_material_background = "medium"
+		vim.g.gruvbox_material_background = "hard"
 
 		-- 3. Tell Neovim to use the light palette
-		vim.opt.background = "light"
+		vim.opt.background = "dark"
 
 		-- 4. Apply the colorscheme
 		vim.cmd.colorscheme("gruvbox-material")

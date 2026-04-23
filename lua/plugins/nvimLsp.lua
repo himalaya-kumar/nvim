@@ -4,19 +4,25 @@ return {
 		{ "mason-org/mason.nvim", opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
 		{ "j-hui/fidget.nvim", opts = {} },
 
-		"saghen/blink.cmp",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/vim-vsnip",
+		-- BLINK ONLY: Replaces nvim-cmp, vsnip, and all cmp-sources
+		{
+			"saghen/blink.cmp",
+			dependencies = { "saghen/blink.lib" },
+			version = "*",
+			opts = {
+				keymap = { preset = "default", ["<CR>"] = { "accept", "fallback" } },
+				sources = {
+					default = { "lsp", "path", "snippets", "buffer" },
+				},
+				-- NATIVE CMDLINE completion (Replaces cmp-cmdline)
+				cmdline = { enabled = true },
+			},
+		},
 	},
 	config = function()
+		-- 1. LSP Attach & Diagnostic Config (Same as above)
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -28,7 +34,7 @@ return {
 				map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 				map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 				map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-				map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]einition")
 				map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 				map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
 				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
@@ -52,27 +58,15 @@ return {
 					)
 				then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.document_highlight,
-					})
-
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.clear_references,
-					})
-
-					vim.api.nvim_create_autocmd("LspDetach", {
-						group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-						callback = function(event2)
-							vim.lsp.buf.clear_references()
-							vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-						end,
-					})
+					vim.api.nvim_create_autocmd(
+						{ "CursorHold", "CursorHoldI" },
+						{ buffer = event.buf, group = highlight_augroup, callback = vim.lsp.buf.document_highlight }
+					)
+					vim.api.nvim_create_autocmd(
+						{ "CursorMoved", "CursorMovedI" },
+						{ buffer = event.buf, group = highlight_augroup, callback = vim.lsp.buf.clear_references }
+					)
 				end
-
 				if
 					client
 					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
@@ -96,35 +90,14 @@ return {
 					[vim.diagnostic.severity.INFO] = "»",
 				},
 			},
-			-- signs = vim.g.have_nerd_font
-			-- 		and {
-			-- 			-- text = {
-			-- 			--     [vim.diagnostic.severity.ERROR] = "󰅚 ",
-			-- 			--     [vim.diagnostic.severity.WARN] = "󰀪 ",
-			-- 			--     [vim.diagnostic.severity.INFO] = "󰋽 ",
-			-- 			--     [vim.diagnostic.severity.HINT] = "󰌶 ",
-			-- 			-- },
-			-- 		}
-			-- 	or {
-			-- 		text = {
-			-- 			[vim.diagnostic.severity.ERROR] = "ERR",
-			-- 			[vim.diagnostic.severity.WARN] = "WRN",
-			-- 			[vim.diagnostic.severity.INFO] = "INF",
-			-- 			[vim.diagnostic.severity.HINT] = "HINT",
-			-- 		},
-			-- 	},
-			virtual_text = {
-				source = "if_many",
-				spacing = 2,
-				format = function(diagnostic)
-					return diagnostic.message
-				end,
-			},
 		})
 
+		-- 2. SIMPLIFIED CAPABILITIES
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
-		local java_home = os.getenv("JAVA_HOME") or "/usr/lib/jvm/java-21-openjdk"
 
+		-- 3. SERVER SETUP (Same as above)
+		local lspconfig = require("lspconfig")
+		local java_home = os.getenv("JAVA_HOME") or "/usr/lib/jvm/java-21-openjdk"
 		local servers = {
 			clangd = {},
 			gopls = {},
@@ -133,104 +106,26 @@ return {
 				settings = {
 					java = {
 						home = java_home,
-						project = {
-							referencedLibraries = { "**/*.jar" },
-						},
-						configuration = {
-							runtimes = {
-								{
-									name = "JavaSE-21",
-									path = java_home,
-									default = true,
-								},
-							},
-						},
-						jdt = {
-							ls = {
-								vmargs = "-javaagent:" .. java_home .. "/lib/lombok.jar",
-							},
-						},
-						compile = {
-							nullAnalysis = {
-								nonnull = "org.jetbrains.annotations.NotNull",
-								nullable = "org.jetbrains.annotations.Nullable",
-							},
-						},
+						jdt = { ls = { vmargs = "-javaagent:" .. java_home .. "/lib/lombok.jar" } },
 					},
 				},
 			},
 			lemminx = {},
-			lua_ls = {
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-					},
-				},
-			},
+			lua_ls = { settings = { Lua = { completion = { callSnippet = "Replace" } } } },
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
-			"stylua",
-		})
+		vim.list_extend(ensure_installed, { "stylua" })
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
-			ensure_installed = {},
-			automatic_installation = false,
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
+					lspconfig[server_name].setup(server)
 				end,
 			},
-		})
-
-		local cmp = require("cmp")
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body)
-				end,
-			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
-			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "vsnip" },
-			}, {
-				{ name = "buffer" },
-			}),
-		})
-
-		cmp.setup.cmdline({ "/", "?" }, {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{ name = "buffer" },
-			},
-		})
-
-		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = cmp.config.sources({
-				{ name = "path" },
-			}, {
-				{ name = "cmdline" },
-			}),
-			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 	end,
 }
