@@ -24,7 +24,7 @@ return {
 	config = function()
 		-- 1. LSP Attach & Diagnostic Config (Same as above)
 		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 			callback = function(event)
 				local map = function(keys, func, desc, mode)
 					mode = mode or "n"
@@ -32,13 +32,12 @@ return {
 				end
 				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 				map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-				map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-				map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]einition")
+				map("grr", function() require("telescope.builtin").lsp_references() end, "[G]oto [R]eferences")
+				map("gri", function() require("telescope.builtin").lsp_implementations() end, "[G]oto [I]mplementation")
+				map("grd", function() require("telescope.builtin").lsp_definitions() end, "[G]oto [D]einition")
 				map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-				map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
-				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
-				map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
+				map("gW", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, "Open Workspace Symbols")
+				map("grt", function() require("telescope.builtin").lsp_type_definitions() end, "[G]oto [T]ype Definition")
 
 				local function client_supports_method(client, method, bufnr)
 					if vim.fn.has("nvim-0.11") == 1 then
@@ -57,7 +56,7 @@ return {
 						event.buf
 					)
 				then
-					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+					local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd(
 						{ "CursorHold", "CursorHoldI" },
 						{ buffer = event.buf, group = highlight_augroup, callback = vim.lsp.buf.document_highlight }
@@ -100,8 +99,35 @@ return {
 		local java_home = os.getenv("JAVA_HOME") or "/usr/lib/jvm/java-21-openjdk"
 		local servers = {
 			clangd = {},
-			gopls = {},
-			ts_ls = {},
+			gopls = {
+				settings = {
+					gopls = {
+						analyses = { unusedparams = true },
+						staticcheck = true,
+						gofumpt = true,
+					},
+				},
+			},
+			ts_ls = {
+				settings = {
+					typescript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayVariableTypeHints = false,
+							includeInlayFunctionLikeReturnTypeHints = true,
+						},
+					},
+					javascript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayVariableTypeHints = false,
+							includeInlayFunctionLikeReturnTypeHints = true,
+						},
+					},
+				},
+			},
 			jdtls = {
 				settings = {
 					java = {

@@ -1,4 +1,5 @@
-require("vimConfig")
-require("basicMap")
+require("config.options")
+require("config.autocommands")
+require("config.keymaps")
 require("health")
 require("lazySetup")
