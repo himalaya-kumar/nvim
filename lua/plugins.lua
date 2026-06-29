@@ -3,14 +3,15 @@
 return {
   -- Core editing enhancements
   require("plugins.autoPairs"),
-  require("plugins.indentLine"),
   require("plugins.autoFormat"),
+  require("plugins.indentLine"),
   require("plugins.lint"),
 
   -- Navigation
   require("plugins.nvimTree"),
   require("plugins.telescopePlugin"),
   require("plugins.whichKey"),
+  require("plugins.flash"),
 
   -- Language support
   require("plugins.treeSitter"),
@@ -29,12 +30,14 @@ return {
   -- Editor enhancements
   require("plugins.surround"),
   require("plugins.oil"),
-  require("plugins.notify"),
   require("plugins.statusline"),
 
-  -- Themes
+  -- Theme references
   require("themes"),
-  require("themes.alphaSetup"),
   require("themes.tabline"),
+  require("themes.alphaSetup"),
+
+  -- Visual
+  require("plugins.notify"),
 
 }
