@@ -3,8 +3,8 @@
 return {
   -- Core editing enhancements
   require("plugins.autoPairs"),
+  require("plugins.snacks"),
   require("plugins.autoFormat"),
-  require("plugins.indentLine"),
   require("plugins.lint"),
 
   -- Navigation
@@ -37,7 +37,5 @@ return {
   require("themes.tabline"),
   require("themes.alphaSetup"),
 
-  -- Visual
-  require("plugins.notify"),
 
 }

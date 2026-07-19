@@ -14,7 +14,7 @@
 --   "everforest"
 --   "cyberdream"
 
-local active = "catppuccin"
+local active = "gruvbox8"
 
 local theme_info = {
 	["gruber-darker"] = { spec = "test.themes_poindres", repo = "blazkowolf/gruber-darker.nvim" },

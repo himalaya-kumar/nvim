@@ -12,7 +12,7 @@ return { -- Async formatting plugin
 			desc = "[F]ormat buffer",
 		},
 	},
-	opts = {
+opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)
 			local disable_filetypes = { c = true, cpp = true }
@@ -38,6 +38,14 @@ return { -- Async formatting plugin
 			toml = { "taplo" },
 			proto = { "buf" },
 			sql = { "sqlfmt" },
+			java = { "google_java_format" },
+		},
+		formatters = {
+			google_java_format = {
+				command = "google-java-format",
+				args = { "--aosp", "--assume-filename", "$FILENAME", "-" },
+				stdin = true,
+			},
 		},
 	},
 }

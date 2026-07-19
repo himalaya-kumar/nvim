@@ -75,6 +75,24 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local java_home = os.getenv("JAVA_HOME") or "/usr/lib/jvm/java-21-openjdk"
+    
+    -- Ensure lombok.jar exists for JDTLS (download to user config dir if system dir not writable)
+    local lombok_jar = vim.fn.stdpath("data") .. "/lombok.jar"
+    if vim.fn.filereadable(lombok_jar) == 0 then
+      local lombok_url = "https://projectlombok.org/downloads/lombok.jar"
+      vim.system({ "curl", "-L", "-o", lombok_jar, lombok_url }, { text = true }, function(obj)
+        if obj.code == 0 then
+          vim.schedule(function()
+            vim.notify("Downloaded lombok.jar to " .. lombok_jar)
+          end)
+        else
+          vim.schedule(function()
+            vim.notify("Failed to download lombok.jar: " .. obj.stderr, vim.log.levels.WARN)
+          end)
+        end
+      end)
+    end
+
     local servers = {
       clangd = {},
       gopls = {
@@ -110,7 +128,7 @@ return {
         settings = {
           java = {
             home = java_home,
-            jdt = { ls = { vmargs = "-javaagent:" .. java_home .. "/lib/lombok.jar" } },
+            jdt = { ls = { vmargs = "-javaagent:" .. lombok_jar } },
           },
         },
       },
@@ -119,8 +137,14 @@ return {
     }
 
     local ensure_installed = {
-      "clangd", "gopls", "typescript-language-server", "jdtls", "lemminx",
-      "lua-language-server", "stylua",
+      "clangd",
+      "gopls",
+      "typescript-language-server",
+      "jdtls",
+      "lemminx",
+      "lua-language-server",
+      "stylua",
+      "google-java-format",
     }
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
