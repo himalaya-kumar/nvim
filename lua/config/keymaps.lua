@@ -25,7 +25,7 @@ end, { desc = "LSP: Document Symbols" })
 map("n", "<A-j>", "ddjP", { desc = "Move line down" })
 map("n", "<A-k>", "ddkP", { desc = "Move line up" })
 
-map("n", "<C-q>", "<cmd>BufferClose<CR>", { desc = "Close buffer" })
+map("n", "<C-q>", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 map("n", "<C-\\>", "<cmd>terminal<CR>", { desc = "Open terminal" })
 map("t", "ii", "<C-\\><C-n>", { desc = "Exit terminal" })

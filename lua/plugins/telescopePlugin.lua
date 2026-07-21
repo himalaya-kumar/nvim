@@ -47,8 +47,10 @@ return {
           height = 0.85,
           width = 0.85,
         },
-        border = "rounded",
-        winblend = 0,
+                winblend = 0,
+border = nil,
+results_title = "Results",
+preview_title = "Preview",
       },
       extensions = {
         ["ui-select"] = {

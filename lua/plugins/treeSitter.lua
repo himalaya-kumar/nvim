@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  event = "VeryLazy",
+  event = "BufReadPre",
   opts = {
     ensure_installed = {
       "lua",
@@ -19,6 +19,7 @@ return {
       "gomod",
       "gowork",
       "java",
+      "context",
     },
     highlight = { enable = true },
     indent = { enable = true },
@@ -31,6 +32,7 @@ return {
         node_decremental = "grm",
       },
     },
+    context_commentstring = { enable = true },
   },
   config = function(_, opts)
     require("nvim-treesitter.config").setup(opts)

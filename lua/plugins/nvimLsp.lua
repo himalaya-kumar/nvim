@@ -37,7 +37,16 @@ return {
         map("n", "gri", function() require("telescope.builtin").lsp_implementations() end, { buffer = buf, desc = "LSP: [G]oto [I]mplementation" })
         map("n", "grd", function() require("telescope.builtin").lsp_definitions() end, { buffer = buf, desc = "LSP: [G]oto [D]efinition" })
         map("n", "grD", vim.lsp.buf.declaration, { buffer = buf, desc = "LSP: [G]oto [D]eclaration" })
-        map("n", "gW", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, { buffer = buf, desc = "LSP: Workspace Symbols" })
+
+        if client:supports_method(vim.lsp.protocol.Methods.workspace_symbol) then
+          map("n", "gW", function()
+            local ok, _ = pcall(require("telescope.builtin").lsp_dynamic_workspace_symbols)
+            if not ok then
+              vim.notify("Workspace symbols error — this LSP server returned invalid data", vim.log.levels.WARN)
+            end
+          end, { buffer = buf, desc = "LSP: Workspace Symbols" })
+        end
+
         map("n", "grt", function() require("telescope.builtin").lsp_type_definitions() end, { buffer = buf, desc = "LSP: [G]oto [T]ype Definition" })
 
         if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -70,12 +79,13 @@ return {
           [vim.diagnostic.severity.INFO] = "»",
         },
       },
+      virtual_text = { spacing = 4, source = "if_many" },
     })
 
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local java_home = os.getenv("JAVA_HOME") or "/usr/lib/jvm/java-21-openjdk"
-    
+
     -- Ensure lombok.jar exists for JDTLS (download to user config dir if system dir not writable)
     local lombok_jar = vim.fn.stdpath("data") .. "/lombok.jar"
     if vim.fn.filereadable(lombok_jar) == 0 then
@@ -124,14 +134,18 @@ return {
           },
         },
       },
-      jdtls = {
-        settings = {
-          java = {
-            home = java_home,
-            jdt = { ls = { vmargs = "-javaagent:" .. lombok_jar } },
-          },
+jdtls = {
+  settings = {
+    java = {
+      home = java_home,
+      jdt = {
+        ls = {
+          vmargs = "-javaagent:" .. lombok_jar,
         },
       },
+    },
+  },
+},
       lemminx = {},
       lua_ls = { settings = { Lua = { completion = { callSnippet = "Replace" } } } },
     }
