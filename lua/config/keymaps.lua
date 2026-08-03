@@ -16,16 +16,16 @@ map("n", "<C-x>", "dd", { desc = "Cut line" })
 map("n", "<C-t>", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
 map("n", "<C-y>", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 map("n", "gO", function()
-  local ok, telescope = pcall(require, "telescope.builtin")
-  if ok then
-    telescope.lsp_document_symbols()
-  end
+	local ok, telescope = pcall(require, "telescope.builtin")
+	if ok then
+		telescope.lsp_document_symbols()
+	end
 end, { desc = "LSP: Document Symbols" })
 
 map("n", "<A-j>", "ddjP", { desc = "Move line down" })
 map("n", "<A-k>", "ddkP", { desc = "Move line up" })
 
-map("n", "<C-q>", "<cmd>BufferClose<CR>", { desc = "Close buffer" })
+map("n", "<C-q>", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 map("n", "<C-\\>", "<cmd>terminal<CR>", { desc = "Open terminal" })
 map("t", "ii", "<C-\\><C-n>", { desc = "Exit terminal" })
@@ -35,13 +35,14 @@ map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 if vim.fn.has("wsl") == 1 then
-  vim.g.clipboard = {
-    name = "WslClipboard",
-    copy = { ["+"] = "clip.exe", ["*"] = "clip.exe" },
-    paste = {
-      ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    },
-    cache_enabled = 0,
-  }
+	vim.g.clipboard = {
+		name = "WslClipboard",
+		copy = { ["+"] = "clip.exe", ["*"] = "clip.exe" },
+		paste = {
+			["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
 end
+vim.o.background = "dark" -- Use "light" if you prefer a bright background

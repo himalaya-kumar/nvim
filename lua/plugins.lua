@@ -3,7 +3,7 @@
 return {
   -- Core editing enhancements
   require("plugins.autoPairs"),
-  require("plugins.indentLine"),
+  require("plugins.snacks"),
   require("plugins.autoFormat"),
   require("plugins.lint"),
 
@@ -11,6 +11,7 @@ return {
   require("plugins.nvimTree"),
   require("plugins.telescopePlugin"),
   require("plugins.whichKey"),
+  require("plugins.flash"),
 
   -- Language support
   require("plugins.treeSitter"),
@@ -29,12 +30,13 @@ return {
   -- Editor enhancements
   require("plugins.surround"),
   require("plugins.oil"),
-  require("plugins.notify"),
   require("plugins.statusline"),
 
-  -- Themes
+  -- Theme references
   require("themes"),
-  require("themes.alphaSetup"),
   require("themes.tabline"),
+  require("plugins.renderMarkdown"),
+  require("themes.alphaSetup"),
+
 
 }

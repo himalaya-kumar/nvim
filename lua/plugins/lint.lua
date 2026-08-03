@@ -4,7 +4,7 @@ return { -- Linting
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = {
-			markdown = { "markdownlint" },
+			markdown = {},
 			Makefile = { "checkmate" },
 		}
 
@@ -24,3 +24,4 @@ return { -- Linting
 		})
 	end,
 }
+
