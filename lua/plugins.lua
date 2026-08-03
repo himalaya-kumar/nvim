@@ -35,6 +35,7 @@ return {
   -- Theme references
   require("themes"),
   require("themes.tabline"),
+  require("plugins.renderMarkdown"),
   require("themes.alphaSetup"),
 
 
