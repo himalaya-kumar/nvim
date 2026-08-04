@@ -50,7 +50,7 @@ A modular Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.n
 | `snacks.nvim` | Dashboard, indent guides, notifier, smooth scroll, word highlight |
 | `nvim-tree.lua` | File explorer sidebar (`<C-n>`) |
 | `oil.nvim` | Buffer-based file explorer (`-`) |
-| `barbar.nvim` | Buffer tabline (`<C-m>` prev, `<C-q>` close) |
+| `bufferline.nvim` | Buffer tabline (`<C-m>` prev, `<C-q>` close); NvimTree sidebar shows "File Explorer" label |
 | `which-key.nvim` | Keymap discovery popup |
 | `mini.nvim` | Statusline |
 
@@ -99,6 +99,7 @@ A modular Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.n
 | `<C-t>` | Telescope live_grep |
 | `<C-y>` | Telescope find_files |
 | `<C-q>` | Close buffer |
+| `<C-m>` | Previous buffer (bufferline) |
 | `<C-\>` | Open terminal |
 | `<C-n>` | NvimTree toggle |
 | `<A-j/k>` | Move line up/down |
