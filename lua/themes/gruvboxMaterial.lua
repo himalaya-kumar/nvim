@@ -8,7 +8,7 @@ return {
 
 		-- 2. Set the contrast for light mode
 		-- Options: 'hard', 'medium', 'soft'
-		vim.g.gruvbox_material_background = "hard"
+		vim.g.gruvbox_material_background = "soft"
 
 		-- 3. Tell Neovim to use the light palette
 		vim.opt.background = "dark"
