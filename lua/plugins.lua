@@ -20,6 +20,7 @@ return {
 
   -- Git
   require("plugins.gitSign"),
+  require("plugins.neogit"),
 
   -- Debugging
   require("plugins.debug"),

@@ -78,6 +78,8 @@ A modular Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.n
 | Plugin | Purpose |
 |--------|---------|
 | `gitsigns.nvim` | Gutter signs, hunk staging, blame |
+| `neogit` | Magit clone for Git status, staging/unstaging, diffs (`<leader>g`) |
+| `diffview.nvim` | Side-by-side & split diff viewer (Neogit integration) |
 
 ### Package Management
 | Plugin | Purpose |
@@ -107,11 +109,29 @@ A modular Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.n
 ### Leader (`<Space>`)
 | Key | Action |
 |-----|--------|
+| `<leader>g` | Open Neogit status / review git changes |
 | `<leader>f` | Format buffer |
 | `<leader>b` / `<leader>B` | Toggle / conditional breakpoint |
-| `<leader>h*` | Git operations (stage, reset, blame, diff) |
+| `<leader>h*` | Git hunk operations (stage, reset, blame, diff) |
 | `<leader>s*` | Telescope searches (help, files, grep, buffers, etc.) |
 | `<leader>t*` | Toggles (blame, inlay hints, deleted lines) |
+
+### Git Review (Neogit - `<leader>g`)
+Press `<leader>g` (`<Space>g`) to open the interactive Git status buffer.
+
+| Key | Action |
+|---|---|
+| `s` | **Stage** file, hunk, or visual selection |
+| `u` | **Unstage** file, hunk, or visual selection |
+| `S` | **Stage all** unstaged files |
+| `U` | **Unstage all** staged files |
+| `<Tab>` | **Toggle inline diff** for file or hunk |
+| `d` | Open Diff popup (side-by-side diff via Diffview) |
+| `x` | Discard changes (prompts for confirmation) |
+| `c` `c` | Open commit message editor |
+| `p` / `P` | Pull / Push popups |
+| `?` | Show help menu with all bindings |
+| `q` | Close Neogit |
 
 ### LSP (buffer-local)
 | Key | Action |

@@ -14,7 +14,7 @@ return {
   opts = {
     options = {
       mode = "buffers",
-      numbers = "buffer_id",
+      numbers = "none",
       show_buffer_close_icons = false,
       show_close_icon = false,
       show_tab_indicators = true,
